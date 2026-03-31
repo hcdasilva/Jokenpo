@@ -1,0 +1,114 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Copilot//Plano Retomada CSharp//PT-BR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Retomada C# .NET (6 semanas)
+X-WR-TIMEZONE:America/Sao_Paulo
+
+BEGIN:VEVENT
+UID:retomada-segunda-20260330@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260330T190000
+DTEND;TZID=America/Sao_Paulo:20260330T210000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=MO
+SUMMARY:Retomada C#/.NET - Segunda
+DESCRIPTION:Meta objetiva: C# moderno aplicado no Jokenpo (pattern matching, nullable, enums) e fechar regras corretas de vitoria/empate/derrota.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:retomada-terca-20260331@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260331T190000
+DTEND;TZID=America/Sao_Paulo:20260331T210000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=TU
+SUMMARY:Retomada C#/.NET - Terca
+DESCRIPTION:Meta objetiva: Refatoracao guiada por design e separacao de responsabilidades para reduzir acoplamento.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:retomada-quarta-20260401@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260401T190000
+DTEND;TZID=America/Sao_Paulo:20260401T210000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=WE
+SUMMARY:Retomada C#/.NET - Quarta
+DESCRIPTION:Meta objetiva: Testes unitarios com cobertura dos cenarios principais e entradas invalidas.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:retomada-quinta-20260402@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260402T190000
+DTEND;TZID=America/Sao_Paulo:20260402T210000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=TH
+SUMMARY:Retomada C#/.NET - Quinta
+DESCRIPTION:Meta objetiva: Testes de integracao para validar fluxo ponta a ponta do desafio.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:retomada-sexta-20260403@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260403T190000
+DTEND;TZID=America/Sao_Paulo:20260403T210000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=FR
+SUMMARY:Retomada C#/.NET - Sexta
+DESCRIPTION:Meta objetiva: CI/CD da semana com pipeline verde (build, test e quality gate minimo).
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:retomada-sabado-20260404@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260404T110000
+DTEND;TZID=America/Sao_Paulo:20260404T130000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=SA
+SUMMARY:Retomada C#/.NET - Sabado
+DESCRIPTION:Meta objetiva: Evolucao arquitetural com melhoria de camadas, contratos e observabilidade.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:retomada-domingo-20260405@copilot
+DTSTAMP:20260327T120000Z
+DTSTART;TZID=America/Sao_Paulo:20260405T110000
+DTEND;TZID=America/Sao_Paulo:20260405T130000
+RRULE:FREQ=WEEKLY;COUNT=6;BYDAY=SU
+SUMMARY:Retomada C#/.NET - Domingo
+DESCRIPTION:Meta objetiva: Review semanal com licoes aprendidas, metricas e backlog da semana seguinte.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lembrete - Bloco de estudo em 30 minutos
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR

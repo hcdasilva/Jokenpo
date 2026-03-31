@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "test",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "dotnet: test"
+		},
+		{
+			"type": "dotnet",
+			"task": "publish",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: publish"
+		},
+		{
+			"type": "dotnet",
+			"task": "restore",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: restore"
+		},
+		{
+			"type": "dotnet",
+			"task": "run",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: run"
+		},
+		{
+			"type": "dotnet",
+			"task": "build /home/calueteh/Teste/Jokenpo.Pan/br.com.jokenpo/br.com.jokenpo.csproj",
+			"file": "/home/calueteh/Teste/Jokenpo.Pan/br.com.jokenpo/br.com.jokenpo.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build /home/calueteh/Teste/Jokenpo.Pan/br.com.jokenpo/br.com.jokenpo.csproj"
+		}
+	]
+}

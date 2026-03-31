@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="br.com.jokenpo/br.com.jokenpo.csproj" />
+  <Project Path="br.com.jokenpo.tests/br.com.jokenpo.tests.csproj" />
+</Solution>
