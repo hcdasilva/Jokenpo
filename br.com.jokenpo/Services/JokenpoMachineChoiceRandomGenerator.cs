@@ -6,8 +6,15 @@ namespace br.com.jokenpo.Services
     {
         public JokenpoEscolhasEnum Gerar()
         {
-            var values = Enum.GetValues<JokenpoEscolhasEnum>();
-            return values[Random.Shared.Next(values.Length)];
+            try
+            {
+                var values = Enum.GetValues<JokenpoEscolhasEnum>();
+                return values[Random.Shared.Next(values.Length)];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao gerar escolha da máquina: " + ex.Message);
+            }
         }
     }
 }
