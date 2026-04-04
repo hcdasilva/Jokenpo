@@ -1,6 +1,6 @@
 ---
 agent: 'agent'
-description: "Use no início de cada sessão do plano de retomada C#/.NET. Ativa o contexto do projeto Jokenpo.Pan e orienta o Copilot para a sessão do dia."
+description: "Use no início de cada sessão do plano de retomada C#/.NET. Ativa o contexto do projeto Jokenpo e orienta o Copilot para a sessão do dia."
 ---
 
 # Início de Sessão — Plano de Retomada C#/.NET
