@@ -1,11 +1,12 @@
 using br.com.jokenpo.Enums;
+using br.com.jokenpo.Models;
 
 namespace br.com.jokenpo.Views
 {
     public interface IJokenpoView
     {
-        void TratarResultado(JokenpoEscolhasEnum userChoiceEnum, JokenpoEscolhasEnum machineChoiceEnum, JokenpoStatusEnum statusEnum);
         void IniciarInstrucoes();
         JokenpoEscolhasEnum ObterEscolhaDoUsuario();
+        void TratarResultado(JokenpoResultadoRodadaViewModel resultadoRodada);
     }
 }

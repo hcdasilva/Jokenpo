@@ -10,6 +10,6 @@ internal static class JokenpoServiceTestFactory
     {
         var machineChoiceGeneratorMock = new Mock<IJokenpoMachineChoiceGenerator>();
         machineChoiceGeneratorMock.Setup(generator => generator.Gerar()).Returns(escolhaDaMaquina);
-        return new JokenpoService(machineChoiceGeneratorMock.Object);
+        return new JokenpoService(machineChoiceGeneratorMock.Object, new Mock<Microsoft.Extensions.Logging.ILogger<JokenpoService>>().Object);
     }
 }

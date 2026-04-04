@@ -1,9 +1,10 @@
 using br.com.jokenpo.Enums;
+using br.com.jokenpo.Models;
 
 namespace br.com.jokenpo.Services
 {
     public interface IJokenpoService
     {
-        JokenpoStatusEnum Jogar(JokenpoEscolhasEnum userChoiceEnum, out JokenpoEscolhasEnum machineChoiceEnum);
+        JokenpoResultadoRodadaModel Jogar(JokenpoEscolhasEnum userChoiceEnum);
     }
 }
