@@ -4,7 +4,6 @@ using br.com.jokenpo.Enums;
 
 namespace br.com.jokenpo.Services
 {
-    [ExcludeFromCodeCoverage]
     public class JokenpoMachineChoiceRandomGenerator : IJokenpoMachineChoiceGenerator
     {
         public JokenpoEscolhasEnum Gerar()

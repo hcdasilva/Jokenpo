@@ -1,10 +1,12 @@
-﻿using br.com.jokenpo.Application;
+﻿using System.Diagnostics.CodeAnalysis;
+using br.com.jokenpo.Application;
 using br.com.jokenpo.Services;
 using br.com.jokenpo.Views;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace br.com.jokenpo;
 
+[ExcludeFromCodeCoverage]
 public class Program
 {
     private static void Main(string[] args)
