@@ -3,20 +3,6 @@
 	"tasks": [
 		{
 			"type": "dotnet",
-			"task": "test",
-			"group": "test",
-			"problemMatcher": [],
-			"label": "dotnet: test"
-		},
-		{
-			"type": "dotnet",
-			"task": "publish",
-			"group": "build",
-			"problemMatcher": [],
-			"label": "dotnet: publish"
-		},
-		{
-			"type": "dotnet",
 			"task": "restore",
 			"group": "build",
 			"problemMatcher": [],
@@ -24,18 +10,45 @@
 		},
 		{
 			"type": "dotnet",
-			"task": "run",
+			"task": "build br.com.jokenpo/br.com.jokenpo.csproj",
+			"file": "./br.com.jokenpo/br.com.jokenpo.csproj",
+			"dependsOn": "dotnet: restore",
 			"group": "build",
 			"problemMatcher": [],
-			"label": "dotnet: run"
+			"label": "dotnet: build"
 		},
 		{
 			"type": "dotnet",
-			"task": "build /home/calueteh/Teste/Jokenpo.Pan/br.com.jokenpo/br.com.jokenpo.csproj",
-			"file": "/home/calueteh/Teste/Jokenpo.Pan/br.com.jokenpo/br.com.jokenpo.csproj",
+			"task": "build br.com.jokenpo.tests/br.com.jokenpo.tests.csproj",
+			"file": "./br.com.jokenpo.tests/br.com.jokenpo.tests.csproj",
+			"dependsOn": "dotnet: restore",
 			"group": "build",
 			"problemMatcher": [],
-			"label": "dotnet: build /home/calueteh/Teste/Jokenpo.Pan/br.com.jokenpo/br.com.jokenpo.csproj"
+			"label": "dotnet: build tests"
+		},
+		{
+			"type": "shell",
+			"command": "rm -rf TestResults && dotnet test br.com.jokenpo.tests/br.com.jokenpo.tests.csproj --no-build --configuration Release --verbosity normal --logger \"trx;LogFileName=TestResults.trx\" --collect:\"XPlat Code Coverage\" --results-directory ./TestResults",
+			"dependsOn": "dotnet: build tests",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "dotnet: test"
+		},
+		{
+			"type": "dotnet",
+			"task": "publish",
+			"dependsOn": "dotnet: build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: publish"
+		},
+		{
+			"type": "dotnet",
+			"task": "run",
+			"dependsOn": "dotnet: build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: run"
 		}
 	]
 }

@@ -6,12 +6,19 @@
     "configurations": [
         
         {
-            "name": "C#: Jokenpo.Pan Debug",
+            "name": "C#: Jokenpo Debug",
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/br.com.jokenpo/br.com.jokenpo.csproj",
-            "preLaunchTask": "build"
-        }
+            "preLaunchTask": "dotnet: build"
+        },
 
+        {
+            "name": "C#: Jokenpo Tests Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/br.com.jokenpo.tests/br.com.jokenpo.tests.csproj",
+            "preLaunchTask": "dotnet: build tests"
+        }
     ]
 }

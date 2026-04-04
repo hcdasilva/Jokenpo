@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
     build-test:
         runs-on: ubuntu-latest
@@ -21,7 +24,50 @@ jobs:
               run: dotnet restore
 
             - name: Build
-              run: dotnet build --no-restore --configuration Release
+              run: dotnet build Jokenpo.slnx --no-restore --configuration Release
               
             - name: Test
-              run: dotnet test --no-build --configuration Release --verbosity normal
+              run: |
+                dotnet test br.com.jokenpo.tests/br.com.jokenpo.tests.csproj \
+                  --no-build \
+                  --configuration Release \
+                  --verbosity normal \
+                  --logger "trx;LogFileName=TestResults.trx" \
+                  --collect:"XPlat Code Coverage" \
+                  --results-directory ./TestResults
+
+            - name: Enforce Minimum Coverage (60%)
+              shell: bash
+              run: |
+                set -euo pipefail
+
+                COVERAGE_FILE="$(find ./TestResults -type f -name 'coverage.cobertura.xml' | head -n 1)"
+
+                if [[ -z "${COVERAGE_FILE}" ]]; then
+                  echo "Arquivo de cobertura nao encontrado em ./TestResults"
+                  exit 1
+                fi
+
+                LINE_RATE="$(awk -F'line-rate="' 'NF>1 { split($2,a,"\""); print a[1]; exit }' "${COVERAGE_FILE}")"
+                COVERAGE_PERCENT="$(awk -v lr="${LINE_RATE}" 'BEGIN { printf "%.0f", lr * 100 }')"
+
+                echo "Cobertura de linhas: ${COVERAGE_PERCENT}%"
+
+                if (( COVERAGE_PERCENT < 60 )); then
+                  echo "Quality gate falhou: cobertura ${COVERAGE_PERCENT}% < 60%"
+                  exit 1
+                fi
+
+                echo "Quality gate aprovado: cobertura ${COVERAGE_PERCENT}% >= 60%"
+
+            - name: Publish Test Results
+              uses: actions/upload-artifact@v4
+              with:
+                name: Test Results
+                path: ./TestResults
+
+            - name: Publish Code Coverage
+              uses: actions/upload-artifact@v4
+              with:
+                name: Code Coverage
+                path: ./TestResults/**/coverage.cobertura.xml

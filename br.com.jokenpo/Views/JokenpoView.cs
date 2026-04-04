@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using br.com.jokenpo.Enums;
 
 namespace br.com.jokenpo.Views
 {
     public class JokenpoView : IJokenpoView
     {
+        [ExcludeFromCodeCoverage]
         public void IniciarInstrucoes()
         {
             Console.WriteLine("Bem vindo ao jogo Jokenpo do Banco Pan");
@@ -29,6 +31,7 @@ namespace br.com.jokenpo.Views
             throw new ArgumentException("Valor inválido. Por favor, insira um número entre 0 e 2.");
         }
 
+        [ExcludeFromCodeCoverage]
         public void TratarResultado(JokenpoEscolhasEnum userChoiceEnum, JokenpoEscolhasEnum machineChoiceEnum, JokenpoStatusEnum statusEnum)
         {
             Console.WriteLine($"Sua escolha: {Enum.GetName(userChoiceEnum)}");
