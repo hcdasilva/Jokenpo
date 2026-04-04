@@ -1,10 +1,14 @@
 using System.Diagnostics.CodeAnalysis;
 using br.com.jokenpo.Enums;
+using br.com.jokenpo.Models;
+using Microsoft.Extensions.Logging;
 
 namespace br.com.jokenpo.Views
 {
-    public class JokenpoView : IJokenpoView
+    public class JokenpoView(ILogger<JokenpoView> logger) : IJokenpoView
     {
+        private readonly ILogger<JokenpoView> _logger = logger;
+
         [ExcludeFromCodeCoverage]
         public void IniciarInstrucoes()
         {
@@ -32,11 +36,11 @@ namespace br.com.jokenpo.Views
         }
 
         [ExcludeFromCodeCoverage]
-        public void TratarResultado(JokenpoEscolhasEnum userChoiceEnum, JokenpoEscolhasEnum machineChoiceEnum, JokenpoStatusEnum statusEnum)
+        public void TratarResultado(JokenpoResultadoRodadaViewModel resultadoRodada)
         {
-            Console.WriteLine($"Sua escolha: {Enum.GetName(userChoiceEnum)}");
-            Console.WriteLine($"Escolha da máquina: {Enum.GetName(machineChoiceEnum)}");
-            Console.WriteLine($"Resultado: {Enum.GetName(statusEnum)}");
+            Console.WriteLine($"Sua escolha: {resultadoRodada.EscolhaJogador}");
+            Console.WriteLine($"Escolha da máquina: {resultadoRodada.EscolhaMaquina}");
+            Console.WriteLine($"Resultado: {resultadoRodada.Resultado}");
         }
     }
 }

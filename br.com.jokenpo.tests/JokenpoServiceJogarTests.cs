@@ -15,10 +15,10 @@ public class JokenpoServiceJogarTests
     {
         var service = JokenpoServiceTestFactory.CriarComEscolhaDaMaquina(escolhaMaquinaMockada);
 
-        var resultado = service.Jogar(escolhaJogador, out var escolhaMaquinaRetornada);
+        var resultado = service.Jogar(escolhaJogador);
 
-        Assert.Equal(escolhaMaquinaMockada, escolhaMaquinaRetornada);
-        Assert.Equal(statusEsperado, resultado);
+        Assert.Equal(escolhaMaquinaMockada, resultado.EscolhaMaquina);
+        Assert.Equal(statusEsperado, resultado.Resultado);
     }
 
     [Theory]
@@ -31,10 +31,10 @@ public class JokenpoServiceJogarTests
     {
         var service = JokenpoServiceTestFactory.CriarComEscolhaDaMaquina(escolhaMaquinaMockada);
 
-        var resultado = service.Jogar(escolhaJogador, out var escolhaMaquinaRetornada);
+        var resultado = service.Jogar(escolhaJogador);
 
-        Assert.Equal(escolhaMaquinaMockada, escolhaMaquinaRetornada);
-        Assert.Equal(JokenpoStatusEnum.Empate, resultado);
+        Assert.Equal(escolhaMaquinaMockada, resultado.EscolhaMaquina);
+        Assert.Equal(JokenpoStatusEnum.Empate, resultado.Resultado);
     }
 
     [Theory]
@@ -47,9 +47,9 @@ public class JokenpoServiceJogarTests
     {
         var service = JokenpoServiceTestFactory.CriarComEscolhaDaMaquina(escolhaMaquinaMockada);
 
-        var resultado = service.Jogar(escolhaJogador, out var escolhaMaquinaRetornada);
+        var resultado = service.Jogar(escolhaJogador);
 
-        Assert.Equal(escolhaMaquinaMockada, escolhaMaquinaRetornada);
-        Assert.Equal(JokenpoStatusEnum.Derrota, resultado);
+        Assert.Equal(escolhaMaquinaMockada, resultado.EscolhaMaquina);
+        Assert.Equal(JokenpoStatusEnum.Derrota, resultado.Resultado);
     }
 }

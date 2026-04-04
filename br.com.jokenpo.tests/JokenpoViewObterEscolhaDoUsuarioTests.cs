@@ -1,5 +1,6 @@
 using br.com.jokenpo.Enums;
 using br.com.jokenpo.Views;
+using Moq;
 
 namespace br.com.jokenpo.tests;
 
@@ -16,7 +17,7 @@ public class JokenpoViewObterEscolhaDoUsuarioTests
         try
         {
             Console.SetIn(new StringReader(input));
-            var view = new JokenpoView();
+            var view = new JokenpoView(new Mock<Microsoft.Extensions.Logging.ILogger<JokenpoView>>().Object);
 
             var escolha = view.ObterEscolhaDoUsuario();
 
@@ -40,7 +41,7 @@ public class JokenpoViewObterEscolhaDoUsuarioTests
         try
         {
             Console.SetIn(new StringReader(input));
-            var view = new JokenpoView();
+            var view = new JokenpoView(new Mock<Microsoft.Extensions.Logging.ILogger<JokenpoView>>().Object);
 
             var exception = Assert.Throws<ArgumentException>(() => view.ObterEscolhaDoUsuario());
 

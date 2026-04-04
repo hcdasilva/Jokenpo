@@ -1,4 +1,3 @@
-using br.com.jokenpo.Enums;
 using br.com.jokenpo.Services;
 
 namespace br.com.jokenpo.tests;

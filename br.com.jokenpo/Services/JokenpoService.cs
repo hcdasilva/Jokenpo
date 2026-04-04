@@ -1,16 +1,33 @@
 using br.com.jokenpo.Enums;
+using br.com.jokenpo.Models;
+using Microsoft.Extensions.Logging;
 
 namespace br.com.jokenpo.Services
 {
-    public class JokenpoService(IJokenpoMachineChoiceGenerator machineChoiceGenerator) : IJokenpoService
+    public class JokenpoService(IJokenpoMachineChoiceGenerator machineChoiceGenerator, ILogger<JokenpoService> logger) : IJokenpoService
     {
         private readonly IJokenpoMachineChoiceGenerator _machineChoiceGenerator = machineChoiceGenerator;
+        private readonly ILogger<JokenpoService> _logger = logger;
 
-        public JokenpoStatusEnum Jogar(JokenpoEscolhasEnum userChoiceEnum, out JokenpoEscolhasEnum machineChoiceEnum)
+        public JokenpoResultadoRodadaModel Jogar(JokenpoEscolhasEnum userChoiceEnum)
         {
-            machineChoiceEnum = _machineChoiceGenerator.Gerar();
+            var machineChoiceEnum = _machineChoiceGenerator.Gerar();
+            var resultado = AvaliarResultado(userChoiceEnum, machineChoiceEnum);
 
-            return AvaliarResultado(userChoiceEnum, machineChoiceEnum);
+            var rodada = new JokenpoResultadoRodadaModel
+            {
+                EscolhaJogador = userChoiceEnum,
+                EscolhaMaquina = machineChoiceEnum,
+                Resultado = resultado
+            };
+
+            _logger.LogDebug(
+                "Dominio calculado. EscolhaUsuario: {EscolhaUsuario}; EscolhaMaquina: {EscolhaMaquina}; Resultado: {Resultado}",
+                rodada.EscolhaJogador,
+                rodada.EscolhaMaquina,
+                rodada.Resultado);
+
+            return rodada;
         }
 
         public JokenpoStatusEnum AvaliarResultado(JokenpoEscolhasEnum userChoiceEnum, JokenpoEscolhasEnum machineChoiceEnum)
