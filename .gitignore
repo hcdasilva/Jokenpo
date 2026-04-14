@@ -480,3 +480,8 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+.serena/*
+!.serena/memories
+!.serena/memories/**
+!.serena/project.yml
